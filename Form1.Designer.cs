@@ -37,12 +37,6 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonEncrypt = new System.Windows.Forms.Button();
             this.buttonDecrypt = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.методиШифруванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsezarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zaminaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.перестановкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -100,9 +94,9 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(643, 255);
+            this.buttonClear.Location = new System.Drawing.Point(634, 255);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 39);
+            this.buttonClear.Size = new System.Drawing.Size(117, 39);
             this.buttonClear.TabIndex = 5;
             this.buttonClear.Text = "Очистити все";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -112,7 +106,7 @@
             // 
             this.buttonEncrypt.Location = new System.Drawing.Point(64, 255);
             this.buttonEncrypt.Name = "buttonEncrypt";
-            this.buttonEncrypt.Size = new System.Drawing.Size(125, 39);
+            this.buttonEncrypt.Size = new System.Drawing.Size(132, 39);
             this.buttonEncrypt.TabIndex = 9;
             this.buttonEncrypt.Text = "Зашифрувати";
             this.buttonEncrypt.UseVisualStyleBackColor = true;
@@ -120,52 +114,13 @@
             // 
             // buttonDecrypt
             // 
-            this.buttonDecrypt.Location = new System.Drawing.Point(341, 255);
+            this.buttonDecrypt.Location = new System.Drawing.Point(332, 255);
             this.buttonDecrypt.Name = "buttonDecrypt";
-            this.buttonDecrypt.Size = new System.Drawing.Size(115, 39);
+            this.buttonDecrypt.Size = new System.Drawing.Size(124, 39);
             this.buttonDecrypt.TabIndex = 10;
             this.buttonDecrypt.Text = "Розшифрувати";
             this.buttonDecrypt.UseVisualStyleBackColor = true;
             this.buttonDecrypt.Click += new System.EventHandler(this.buttonDecrypt_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.методиШифруванняToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 11;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // методиШифруванняToolStripMenuItem
-            // 
-            this.методиШифруванняToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsezarToolStripMenuItem,
-            this.zaminaToolStripMenuItem,
-            this.перестановкаToolStripMenuItem});
-            this.методиШифруванняToolStripMenuItem.Name = "методиШифруванняToolStripMenuItem";
-            this.методиШифруванняToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
-            this.методиШифруванняToolStripMenuItem.Text = "Методи шифрування";
-            // 
-            // tsezarToolStripMenuItem
-            // 
-            this.tsezarToolStripMenuItem.Name = "tsezarToolStripMenuItem";
-            this.tsezarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.tsezarToolStripMenuItem.Text = "Цезаря";
-            // 
-            // zaminaToolStripMenuItem
-            // 
-            this.zaminaToolStripMenuItem.Name = "zaminaToolStripMenuItem";
-            this.zaminaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.zaminaToolStripMenuItem.Text = "Заміни";
-            // 
-            // перестановкаToolStripMenuItem
-            // 
-            this.перестановкаToolStripMenuItem.Name = "перестановкаToolStripMenuItem";
-            this.перестановкаToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.перестановкаToolStripMenuItem.Text = "Перестановка";
             // 
             // Form1
             // 
@@ -181,13 +136,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Shyfrator";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,11 +155,6 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonEncrypt;
         private System.Windows.Forms.Button buttonDecrypt;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem методиШифруванняToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsezarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zaminaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem перестановкаToolStripMenuItem;
     }
 }
 

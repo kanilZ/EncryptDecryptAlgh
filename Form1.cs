@@ -12,11 +12,11 @@ namespace ShyfryLab1
 {
     public partial class Form1 : Form
     {
-        Tsezar tsezar;
+        IEncrDecr encrDecr;
         public Form1()
         {
             InitializeComponent();
-            tsezar = new Tsezar();
+            encrDecr = new SwapMethod();
         }
 
       
@@ -29,12 +29,12 @@ namespace ShyfryLab1
 
         private void buttonEncrypt_Click(object sender, EventArgs e)
         {
-            richTextEncrypt.Text = tsezar.Encrypt(richTextOpen.Text);
+            richTextEncrypt.Text = encrDecr.Encrypt(richTextOpen.Text);
         }
 
         private void buttonDecrypt_Click(object sender, EventArgs e)
         {
-            richTextDecrypt.Text = tsezar.Decrypt(richTextEncrypt.Text);
+            richTextDecrypt.Text = encrDecr.Decrypt(richTextEncrypt.Text);
         }
 
         private void Form1_Load(object sender, EventArgs e)
