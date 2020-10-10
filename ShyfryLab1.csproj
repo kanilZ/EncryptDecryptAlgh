@@ -55,6 +55,7 @@
     <Compile Include="IEncrDecr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShuffleMethod.cs" />
     <Compile Include="SwapMethod.cs" />
     <Compile Include="Tsezar.cs" />
     <EmbeddedResource Include="Form1.resx">

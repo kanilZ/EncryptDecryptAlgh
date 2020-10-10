@@ -8,7 +8,7 @@ namespace ShyfryLab1
 {
     public class Tsezar : IEncrDecr
     {
-        private int shift = 3;
+        private int shift;
         public Tsezar()
         {
             shift = 3;
