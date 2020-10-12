@@ -93,7 +93,6 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.richTextEncrypt.Location = new System.Drawing.Point(270, 84);
             this.richTextEncrypt.Name = "richTextEncrypt";
-            this.richTextEncrypt.ReadOnly = true;
             this.richTextEncrypt.Size = new System.Drawing.Size(197, 145);
             this.richTextEncrypt.TabIndex = 7;
             this.richTextEncrypt.Text = "";

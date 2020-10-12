@@ -21,46 +21,93 @@ namespace ShyfryLab1
         }
         public string Decrypt(string text)
         {
-            throw new NotImplementedException();
-        }
-        private void MakeKeyIndex(string keyText)
-        {
-            for (int i = 0; i < keyText.Length - 1; i++)
-            {
-                if (keyText[i] > keyText[i + 1])
-                {
-                    keyIndex[i] = i++;
-                }
-            }
-        }
-        public string Encrypt(string text)
-        {
-            int num = text.Length / nblock;
-            string spText = text.Replace(" ", "");
-            char[,] vocab = new char[nblock, num];
+            int rows = (int)Math.Ceiling(((double)text.Length / (double)nblock));
+            char[,] vocab = new char[rows, nblock];
             StringBuilder result = new StringBuilder();
 
+            MakeKeyIndex(key);
 
-            for (int i = 0, index = 0, spLength = spText.Length; i < nblock; i++)
+            for (int i = 0, index = 0; i < nblock; i++)
             {
-                if (index == spLength)
-                    break;
-                for (int j = 0; j < num; j++, index++)
+                int colm = FindIndex(keyIndex, i + 1);
+                for (int j = 0; j < rows; j++, index++)
                 {
-                    vocab[i, j] = spText[index];
+                    if (j * nblock + colm + 1 > text.Length)
+                        break;
+                    vocab[j, colm] = text[index];
                 }
             }
-            //spText[i];
+
+            for (int j = 0; j < rows; j++)
+            {
+                for (int i = 0; i < nblock; i++)
+                {
+                    result.Append(vocab[j, i]);
+                }
+            }
+            return result.ToString();
+        }
+        public void MakeKeyIndex(string keyText)
+        {
+            int textSize = keyText.Length;
+            for (int i = 0; i < textSize; i++)
+            {
+                int index = 1;
+                for (int j = 0; j < textSize; j++)
+                {
+                    if (keyText[i] > keyText[j])
+                    {
+                        index++;
+                    }
+                    else if (i == j)
+                        continue;
+
+                }
+                keyIndex[i] = index;
+            }
+        }
+
+        public string Encrypt(string text)
+        {
+            int rows = (int)Math.Ceiling(((double)text.Length / (double)nblock));
+
+            char[,] vocab = new char[rows, nblock];
+            StringBuilder result = new StringBuilder();
+
+            MakeKeyIndex(key);
+
+            for (int i = 0, index = 0, spLength = text.Length; i < rows || index != spLength; i++)
+            {
+                for (int j = 0; j < nblock; j++, index++)
+                {
+                    if (i * nblock + j + 1 > spLength || index == spLength)
+                        break;
+
+                    vocab[i, j] = text[index];
+                }
+            }
+
             for (int i = 0; i < nblock; i++)
             {
-                for (int j = 0; j < num; j++)
+                int colm = FindIndex(keyIndex, i + 1);
+                for (int j = 0; j < rows; j++)
                 {
-                    result.Append(vocab[i, j]);
+                    if (j * nblock + colm + 1 > text.Length)
+                        break;
+                    result.Append(vocab[j, colm]);
                 }
             }
 
             return result.ToString();
-
+        }
+        private int FindIndex(int[] where, int what)
+        {
+            for (int i = 0; i < where.Length; i++)
+            {
+                if (where[i] == what)
+                    return i;
+            }
+            return 0;
         }
     }
 }
