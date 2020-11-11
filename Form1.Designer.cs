@@ -1,4 +1,4 @@
-﻿namespace ShyfryLab1
+﻿namespace ShyfryLab
 {
     partial class Form1
     {
@@ -151,7 +151,11 @@
             this.comboMethods.Items.AddRange(new object[] {
             "Цезаря",
             "Заміни",
-            "Перестановки"});
+            "Перестановки",
+            "Квадрат полібія",
+            "Гронсфельда",
+            "Біграмний",
+            "Вернама"});
             this.comboMethods.Location = new System.Drawing.Point(807, 75);
             this.comboMethods.Name = "comboMethods";
             this.comboMethods.Size = new System.Drawing.Size(147, 24);
@@ -171,7 +175,6 @@
             // textBox
             // 
             this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox.Enabled = false;
             this.textBox.Location = new System.Drawing.Point(807, 169);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(147, 22);
@@ -180,6 +183,7 @@
             // buttonKey
             // 
             this.buttonKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonKey.Enabled = false;
             this.buttonKey.Location = new System.Drawing.Point(879, 216);
             this.buttonKey.Name = "buttonKey";
             this.buttonKey.Size = new System.Drawing.Size(75, 34);

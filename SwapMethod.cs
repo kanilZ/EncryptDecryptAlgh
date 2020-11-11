@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShyfryLab1
+namespace ShyfryLab
 {
     public class SwapMethod : IEncrDecr
     {
@@ -27,7 +27,7 @@ namespace ShyfryLab1
             return result.ToString();
         }
         public string Encrypt(string text)
-        {
+        {          
             result = new StringBuilder(text.Length);
             for (int i = 0; i < text.Length; i++)
             {

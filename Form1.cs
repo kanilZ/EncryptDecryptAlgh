@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShyfryLab1
+namespace ShyfryLab
 {
     public partial class Form1 : Form
     {
@@ -30,7 +30,13 @@ namespace ShyfryLab1
         {
             if (!NotSelectedItem())
             {
+                
                 richTextEncrypt.Text = encrDecr.Encrypt(richTextOpen.Text);
+                if (encrDecr is Vernama)
+                {
+                    Vernama vernama = (Vernama)encrDecr;
+                    textBox.Text = vernama.Key();
+                }
             }
         }
 
@@ -61,19 +67,46 @@ namespace ShyfryLab1
             {
                 case "Цезаря":
                     encrDecr = new Tsezar();
-                    EnableElem(false);
+                    //EnableElem(false);                
                     break;
 
                 case "Заміни":
                     encrDecr = new SwapMethod();
-                    EnableElem(false);
+                  //  EnableElem(false);                 
                     break;
 
-                case "Перестановки":                   
-                    EnableElem(true);
-                    buttonEncrypt.Enabled = false;
+                case "Перестановки":
+                    if (textBox.Text == "")
+                    {
+                        MessageBox.Show("Ключ не заданий!"); return;
+                    }
+                    encrDecr = new ShuffleMethod(textBox.Text);
+                   // EnableElem(true);                 
                     break;
 
+                case "Квадрат полібія":
+                    if (textBox.Text == "")
+                    {
+                        MessageBox.Show("Ключ не заданий!"); return;
+                    }
+                    encrDecr = new Polibius(textBox.Text);
+                    //EnableElem(true);
+                    break;
+
+                case "Гронсфельда":
+                    if (textBox.Text == "")
+                    {
+                        MessageBox.Show("Ключ не заданий!"); return;
+                    }
+                    encrDecr = new Gronsfeld(textBox.Text);
+                   // EnableElem(true);
+                    break;
+                case "Біграмний":                  
+                    encrDecr = new Bigram(textBox.Text);
+                    break;
+                case "Вернама":                 
+                    encrDecr = new Vernama(textBox.Text);
+                    break;
                 default:
                     MessageBox.Show("Нічого не вибрано");
                     break;
@@ -84,12 +117,14 @@ namespace ShyfryLab1
         {
             textBox.Enabled = need;
             buttonKey.Enabled = need;
+            buttonEncrypt.Enabled = !need;
+            buttonDecrypt.Enabled = !need;
         }
 
         private void buttonKey_Click(object sender, EventArgs e)
-        {
-            encrDecr = new ShuffleMethod(textBox.Text);
+        {                     
             buttonEncrypt.Enabled = true;
+            buttonDecrypt.Enabled = true; 
             EnableElem(false);
         }
     }

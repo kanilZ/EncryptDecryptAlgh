@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShyfryLab1
+namespace ShyfryLab
 {
     public class ShuffleMethod : IEncrDecr
     {
         private string key;
         private int nblock;
-        private int[] keyIndex;
-        //  private 
+        private int[] keyIndex;      
         public ShuffleMethod() { }
         public ShuffleMethod(string key)
         {
